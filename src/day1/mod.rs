@@ -1,18 +1,15 @@
 pub mod part1 {
     use super::*;
 
-    pub fn run() {
-        println!("Running Day 1, Part 1");
-        let result: i32 = parse_input().into_iter().sum();
-        println!("Result: {:?}", result);
+    pub fn run() -> String {
+        parse_input().into_iter().sum::<i32>().to_string()
     }
 }
 
 pub mod part2 {
     use super::*;
     use std::collections::HashSet;
-    pub fn run() {
-        println!("Running Day 1, Part 2");
+    pub fn run() -> String {
         let mut frequencies = parse_input().into_iter()
             .cycle()
             .scan(0, |f, c| {
@@ -23,8 +20,8 @@ pub mod part2 {
         let mut freq_seen = HashSet::new();
         let result = frequencies.find(|c| !freq_seen.insert(*c));
         match result {
-            Some(r) => println!("Result: {:?}", r),
-            None => println!("Result: Did not find a repeating frequency")
+            Some(r) => r.to_string(),
+            None => "Did not find a repeating frequency".to_string()
         }
     }
 }
