@@ -12,14 +12,15 @@ pub mod part1 {
     }
 
     pub fn run() -> String {
-        let occurences = parse_input()
-            .into_iter()
-            .map(|s| char_occurences(&s))
-            .fold((0,0), |a, o| {
-                let twos = if o.values().any(|c| *c == 2) { 1 } else { 0 };
-                let threes = if o.values().any(|c| *c == 3) { 1 } else { 0 };
-                (a.0 + twos, a.1 + threes)
-            });
+        let occurences =
+            parse_input()
+                .into_iter()
+                .map(|s| char_occurences(&s))
+                .fold((0, 0), |a, o| {
+                    let twos = if o.values().any(|c| *c == 2) { 1 } else { 0 };
+                    let threes = if o.values().any(|c| *c == 3) { 1 } else { 0 };
+                    (a.0 + twos, a.1 + threes)
+                });
         (occurences.0 * occurences.1).to_string()
     }
 }
@@ -29,9 +30,11 @@ pub mod part2 {
     use std::iter::FromIterator;
 
     fn find_similar_string(s1: &String, s2: &String) -> String {
-        let chars = s1.chars().zip(s2.chars())
-            .filter(|(a,b)| a == b)
-            .map(|(a,_)| a);
+        let chars = s1
+            .chars()
+            .zip(s2.chars())
+            .filter(|(a, b)| a == b)
+            .map(|(a, _)| a);
         String::from_iter(chars)
     }
 
@@ -41,7 +44,7 @@ pub mod part2 {
             for s2 in &input {
                 let similar = find_similar_string(&s1, &s2);
                 if s1.len() - similar.len() == 1 {
-                    return similar
+                    return similar;
                 }
             }
         }
