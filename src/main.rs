@@ -1,10 +1,12 @@
 mod day1;
 mod day2;
+mod day3;
 
 fn main() {
     let puzzles = [
         [day1::part1::run, day1::part2::run],
         [day2::part1::run, day2::part2::run],
+        [day3::part1::run, day3::part2::run],
     ];
 
     let args: Vec<String> = std::env::args().collect();
