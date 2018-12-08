@@ -3,6 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day8;
 
 pub fn no_puzzle() -> String {
     panic!("puzzle not implemented")
@@ -15,6 +16,9 @@ fn main() {
         [day3::part1::run, day3::part2::run],
         [day4::part1::run, day4::part2::run],
         [day5::part1::run, day5::part2::run],
+        [no_puzzle, no_puzzle],
+        [no_puzzle, no_puzzle],
+        [day8::part1::run, day8::part2::run],
     ];
 
     let args: Vec<String> = std::env::args().collect();
