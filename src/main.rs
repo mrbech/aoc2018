@@ -3,6 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day7;
 mod day8;
 
 pub fn no_puzzle() -> String {
@@ -17,7 +18,7 @@ fn main() {
         [day4::part1::run, day4::part2::run],
         [day5::part1::run, day5::part2::run],
         [no_puzzle, no_puzzle],
-        [no_puzzle, no_puzzle],
+        [day7::part1::run, day7::part2::run],
         [day8::part1::run, day8::part2::run],
     ];
 
